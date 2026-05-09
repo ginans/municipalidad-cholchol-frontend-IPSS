@@ -3,19 +3,54 @@
 @tailwind utilities;
 
 :root {
-  --background: 255 255 255;
-  --foreground: 23 23 23;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: 10 10 10;
-    --foreground: 237 237 237;
-  }
+  --background: 174 38% 91%;
+  --foreground: 164 90% 12%;
+  --card: 0 0% 100%;
+  --card-foreground: 164 90% 12%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 164 90% 12%;
+  --primary: 216 67% 40%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 174 38% 91%;
+  --secondary-foreground: 164 90% 12%;
+  --muted: 174 20% 94%;
+  --muted-foreground: 164 24% 30%;
+  --accent: 28 91% 54%;
+  --accent-foreground: 0 0% 100%;
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 172 17% 80%;
+  --input: 172 17% 80%;
+  --ring: 216 67% 40%;
+  --radius: 1rem;
 }
 
 body {
-  background: rgb(var(--background));
-  color: rgb(var(--foreground));
-  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  background: hsl(var(--background));
+  color: hsl(var(--foreground));
+  font-family: var(--font-sans), "Segoe UI", sans-serif;
+}
+
+.municipal-bg {
+  background-image:
+    radial-gradient(circle at 9% 0%, hsl(216 67% 40% / 0.2) 0, transparent 44%),
+    radial-gradient(
+      circle at 95% 18%,
+      hsl(164 90% 12% / 0.13) 0,
+      transparent 40%
+    ),
+    linear-gradient(180deg, hsl(var(--background)) 0%, hsl(174 30% 95%) 100%);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-serif), Georgia, serif;
+  }
 }
