@@ -1,36 +1,109 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Municipalidad de Cholchol — Rediseño Home
 
-## Getting Started
+Este repositorio contiene el rediseño de la página de inicio del sitio web de la **Municipalidad de Cholchol**, desarrollado como parte de la Evaluación Sumativa de la Unidad 2 del módulo de Desarrollo Frontend en el Instituto Profesional San Sebastián.
 
-First, run the development server:
+El sitio de referencia es [municholchol.cl](https://municholchol.cl). El objetivo de este proyecto es construir una nueva Home moderna, accesible e interactiva utilizando Next.js como framework principal, aplicando buenas prácticas de desarrollo frontend y cumpliendo los criterios de evaluación CE1 a CE8.
+
+El enfoque está en mejorar la experiencia del vecino: información municipal clara, tramitación en línea accesible, agenda comunal visible y patrimonio local destacado, todo con un diseño responsivo que funcione bien en móvil, tablet y escritorio.
+
+---
+
+## Stack tecnológico
+
+| Herramienta          | Versión |
+| -------------------- | ------- |
+| Next.js (App Router) | 15      |
+| React                | 18      |
+| TypeScript           | 5       |
+| Tailwind CSS         | 3       |
+| shadcn/ui            | latest  |
+| Lucide React         | latest  |
+| Sonner (toasts)      | latest  |
+
+---
+
+## Requisitos previos
+
+- [Node.js](https://nodejs.org/) versión 20 (>= 20 y < 21)
+- [Git](https://git-scm.com/)
+
+> Podés verificar tu versión de Node con `node -v`. Si necesitás manejar varias versiones, podés usar [nvm](https://github.com/nvm-sh/nvm).
+
+---
+
+## Cómo clonar y ejecutar el proyecto
+
+**1. Clonar el repositorio**
+
+```bash
+git clone https://github.com/ginans/municipalidad-cholchol-frontend-IPSS.git
+cd municipalidad-cholchol-frontend-IPSS
+```
+
+**2. Instalar dependencias**
+
+```bash
+npm install
+```
+
+**3. Levantar el servidor de desarrollo**
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Luego abrir [http://localhost:3000](http://localhost:3000) en el navegador. La página se actualiza automáticamente al guardar cambios.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Otros comandos útiles
 
-## Learn More
+```bash
+npm run build   # Genera el build de producción
+npm run lint    # Ejecuta el linter (ESLint)
+```
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Estructura del proyecto
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```
+app/
+  layout.tsx              # Shell global (SidebarProvider, Toaster, footer)
+  page.tsx                # Página de inicio
 
-## Deploy on Vercel
+components/
+  layout/
+    app-sidebar.tsx       # Sidebar lateral con navegación
+    site-navbar.tsx       # Navbar superior con logo y accesos
+  sections/
+    home-interactive.tsx  # Composición de secciones de la Home
+    home/
+      agenda-section.tsx          # Agenda comunal con toggle show/hide
+      contact-section.tsx         # Formulario de contacto con validaciones
+      home-banner-carousel.tsx    # Carrusel principal de banners
+      home-data.ts                # Datos centralizados (servicios, agenda, galería, banners)
+      municipio-section.tsx       # Sección Municipio (carrusel + agenda + servicios)
+      patrimonio-section.tsx      # Galería fotográfica de patrimonio
+      services-section.tsx        # Trámites y servicios con filtros y hover
+  ui/                     # Componentes shadcn/ui (button, input, sidebar, carousel, sonner, etc.)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+lib/
+  utils.ts                # Utilidades (cn)
+  nav-data.ts             # Links de navegación
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+public/
+  cholchol/
+    banners/              # Imágenes para el carrusel
+    logos/                # Logo institucional
+    patrimonio/           # Imágenes de patrimonio local
+
+types/
+  routes.d.ts             # Tipos de rutas generados por Next.js
+```
+
+---
+
+## Imágenes
+
+Todas las imágenes utilizadas fueron obtenidas del sitio oficial [municholchol.cl](https://municholchol.cl) con fines educativos.
