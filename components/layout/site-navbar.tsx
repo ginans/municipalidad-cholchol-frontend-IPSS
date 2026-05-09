@@ -1,6 +1,7 @@
 "use client";
 
 import { House } from "lucide-react";
+import Image from "next/image";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -21,13 +22,30 @@ export function SiteNavbar() {
       <nav className="mx-auto flex w-full max-w-6xl flex-col gap-3 px-4 py-3 sm:px-6 lg:px-8">
         {/* Fila superior: branding + links de transparencia (desktop) + controles mobile */}
         <div className="flex items-center justify-between gap-3">
-          <div>
-            <p className="text-xs uppercase tracking-[0.2em] text-primary-foreground/75">
-              Municipalidad de
-            </p>
-            <p className="font-serif text-xl font-semibold text-primary-foreground">
-              Cholchol
-            </p>
+          <div className="flex items-center gap-3">
+            <a
+              href="#inicio"
+              aria-label="Ir al inicio de la Municipalidad de Cholchol"
+              className="rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
+            >
+              <Image
+                src="/cholchol/logos/logo-color.png"
+                alt="Logo color Municipalidad de Cholchol"
+                width={56}
+                height={56}
+                className="h-11 w-11 object-contain"
+                priority
+              />
+            </a>
+
+            <div>
+              <p className="text-xs uppercase tracking-[0.2em] text-primary-foreground/75">
+                Municipalidad de
+              </p>
+              <p className="font-serif text-xl font-semibold text-primary-foreground">
+                Cholchol
+              </p>
+            </div>
           </div>
 
           {/* Links de transparencia — solo desktop */}

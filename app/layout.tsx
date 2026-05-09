@@ -4,6 +4,7 @@ import "./globals.css";
 
 import { AppSidebar } from "../components/layout/app-sidebar";
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
+import { Toaster } from "@/components/ui/sonner";
 
 const assistant = Assistant({
   variable: "--font-sans",
@@ -17,8 +18,6 @@ const oswald = Oswald({
 
 export const metadata: Metadata = {
   title: "Municipalidad de Cholchol",
-  description:
-    "Rediseño de la portada institucional de la Municipalidad de Cholchol",
 };
 
 export default function RootLayout({
@@ -54,6 +53,15 @@ export default function RootLayout({
             </footer>
           </SidebarInset>
         </SidebarProvider>
+        <Toaster
+          position="bottom-right"
+          toastOptions={{
+            classNames: {
+              success: "!bg-green-50 !border-green-200 !text-green-800 [&_svg]:!text-green-500",
+              error: "!bg-red-50 !border-red-200 !text-red-800 [&_svg]:!text-red-400",
+            },
+          }}
+        />
       </body>
     </html>
   );
